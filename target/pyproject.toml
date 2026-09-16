@@ -1,0 +1,23 @@
+[project]
+name = "target"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "rpi-hardware-pwm>=0.2.1",
+    "pydantic>=2.13.4",
+    "pyzmq>=27.1.0",
+]
+
+[project.scripts]
+target = "target:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "datamodel-code-generator>=0.73.0",
+]

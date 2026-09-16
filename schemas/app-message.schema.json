@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "app-message.schema.json",
+  "title": "App Message",
+  "description": "Messages passed between the bluetooth server and the mobile app",
+  "anyOf": [
+    {
+      "type": "object",
+      "description": "App -> controller. Starts a fresh run in the given mode.",
+      "properties": {
+        "kind": {
+          "const": "set-game-mode"
+        },
+        "mode": {
+          "enum": ["endless", "ten"]
+        }
+      },
+      "required": ["kind", "mode"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "description": "App -> controller. One on-device inference readout, in upright analyzer frame pixels. (-1, -1) means no detection on that frame.",
+      "properties": {
+        "kind": {
+          "const": "inference-result"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["kind", "x", "y"]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "im-alive"
+        }
+      },
+      "required": ["kind"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "setup-done"
+        }
+      },
+      "required": ["kind"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "mtu"
+        },
+        "mtu": {
+          "type": "integer",
+          "minimum": 23,
+          "maximum": 517
+        }
+      },
+      "required": ["kind", "mtu"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "set-horizontal-servo"
+        },
+        "angle": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 180
+        }
+      },
+      "required": ["kind", "angle"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "set-vertical-servo"
+        },
+        "angle": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 180
+        }
+      },
+      "required": ["kind", "angle"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "set-calibration-point"
+        },
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": ["kind", "index", "x", "y"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "set-score"
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "required": ["kind", "score"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "register-calibration"
+        }
+      },
+      "required": ["kind"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "description": "Controller -> app. Where the target is now aiming, in virtual wall centimetres (origin top-left, 300 wide by 200 tall).",
+      "properties": {
+        "kind": {
+          "const": "set-target-virtual-position"
+        },
+        "x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 300
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 200
+        }
+      },
+      "required": ["kind", "x", "y"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "description": "Controller -> app. Where the ball is, in virtual wall centimetres (origin top-left, 300 wide by 200 tall).",
+      "properties": {
+        "kind": {
+          "const": "set-ball-virtual-position"
+        },
+        "x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 300
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 200
+        }
+      },
+      "required": ["kind", "x", "y"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "description": "App -> controller. Asks the controller to move on to the next target.",
+      "properties": {
+        "kind": {
+          "const": "next-target"
+        }
+      },
+      "required": ["kind"],
+      "additionalProperties": false
+    }
+  ]
+}

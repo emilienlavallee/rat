@@ -1,0 +1,33 @@
+[project]
+name = "bluetooth"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Emilien Lavallee", email = "thousandthstar@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "bless>=0.2.6",
+    "bleak>=0.20,<1.0",
+    "autopep8>=2.3.2",
+    "bluez-peripheral>=0.1.7",
+    "pyzmq>=27.1.0",
+    "warlock>=2.1.0",
+    "pydantic>=2.13.4",
+]
+
+[project.scripts]
+bluetooth = "bluetooth:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "jsonschema-gentypes>=2.13.0",
+    "datamodel-code-generator>=0.73.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
