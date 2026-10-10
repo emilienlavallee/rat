@@ -1,6 +1,8 @@
 # RAT 
 
-## [Demo Video](https://drive.google.com/file/d/12AuYkuIeYhW4gcrlFuZbU0RZ_cfOTzE9/view?usp=sharing)
+**Watch the YouTube video here!**
+
+[![YouTube Video](http://img.youtube.com/vi/_J-vR6xo5qQ/0.jpg)](http://www.youtube.com/watch?v=_J-vR6xo5qQ "Video Title")
 
 RAT (the Rat Aim Trainer) is an aim trainer for lacrosse wallball rats.
 
