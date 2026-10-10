@@ -1,6 +1,6 @@
 # RAT 
 
-**Watch the YouTube video here!**
+**Watch the YouTube video by clicking the image here!**
 
 [![YouTube Video](http://img.youtube.com/vi/_J-vR6xo5qQ/0.jpg)](http://www.youtube.com/watch?v=_J-vR6xo5qQ "Video Title")
 
